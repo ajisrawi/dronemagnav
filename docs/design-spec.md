@@ -80,11 +80,13 @@ confirms the binary holds the same values at the cells the firmware addresses.
 | WDMAM SD grid vs source text file | 7200 × 3601 cells, 100 % valid, 225 sample cells identical (tools/wdmam_check.py) |
 | MAX-M10S straps vs u-blox integration manual UBX-20053088 R05 | VIO_SEL open = 3.3 V I/O as built; V_BCKP on +3V3 within 1.5–3.6 V; RESET_N pull-up acceptable; TIMEPULSE–SAFEBOOT_N tie → GPIO16 input-only |
 | Vias in pads after dog-bone pass (tools/fab_audit.py) | 74 moved out; 3 remain in small pads (fill & cap), 2 in thermal pads; DRC 0 unconnected, 0 electrical |
+| Firmware build (PlatformIO, pioarduino espressif32 55.3.311, Arduino-ESP32 3.3.11) | SUCCESS, 0 warnings; flash 1,077,723 B (25.7 % of app partition), RAM 95,876 B (29.3 %) |
 
 ## 9. Known limitations
 - WDMAM resolution/altitude → km-class accuracy without a local survey.
 - LIS3MDL noise adequate for the world grid only; RM3100 recommended for local surveys.
 - Magnetic interference from ESCs/motors must be handled by mounting distance and the Tolles-Lawson calibration.
-- Firmware not yet compile-verified on hardware.
+- Firmware compiles (0 warnings) but has not yet run on hardware; the
+  calibration flight and MagNav-vs-GNSS benchmark remain to be done.
 - V_BCKP is tied to +3V3 (in range, but no hot start after a power cycle);
   fit a backup cell on V_BCKP if that matters.

@@ -25,16 +25,27 @@ firmware/
     └── maps/               wdmam.bin, WMM.COF, coast.json  (generated)
 ```
 
+## 0. Ready-made images (no toolchain needed)
+`release/` holds the verified build (Arduino-ESP32 core 3.3.11, 0 warnings,
+1.08 MB flash / 94 KB RAM). One command with [esptool](https://pypi.org/project/esptool/):
+```bash
+esptool --chip esp32s3 --port COM5 --baud 921600 write-flash 0x0 release/dronemagnav-firmware.factory.bin
+```
+(`factory.bin` already contains bootloader, partition table and app.)
+
 ## 1. Install the toolchain
 Install [PlatformIO Core](https://platformio.org/install/cli) (or the VS Code
-extension). Everything else (ESP-IDF toolchain, Arduino-ESP32 core) is fetched
-automatically on first build.
+extension), e.g. `pip install platformio`. `platformio.ini` points at the
+pioarduino build of the Espressif platform, so the toolchain and Arduino-ESP32
+core are fetched from GitHub on the first build (~1.5 GB, one time).
 
 ## 2. Build
 ```bash
 cd firmware
 pio run
 ```
+Verified result: `[SUCCESS]`, RAM 29.3 % (95,876 B), Flash 25.7 % (1,077,723 B
+of the 4 MB app partition), no compiler warnings.
 
 ## 3. Flash (USB-C, no external programmer)
 ```bash

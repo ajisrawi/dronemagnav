@@ -372,7 +372,8 @@ def build_body():
          "VIO_SEL open = 3.3 V I/O (as built); TIMEPULSE-SAFEBOOT_N tie honoured in firmware"],
         ["Vias in pads after dog-bone pass", "tools/fab_audit.py",
          "3 in small pads (listed for fill & cap), 2 in thermal pads, 0 unconnected, 0 DRC"],
-        ["Firmware", "-", "complete source; not yet compile-verified on hardware"]],
+        ["Firmware build (PlatformIO, Arduino-ESP32 3.3.11)", "pio run",
+         "SUCCESS, 0 warnings; flash 1.08 MB (25.7 %), RAM 94 KB (29.3 %); images in firmware/release"]],
         [USABLE - 250, 110, 140]))
 
     el.append(P("9   Limitations and next steps", st_h1))
@@ -380,7 +381,7 @@ def build_body():
         "WDMAM resolution and 5 km altitude limit stand-alone accuracy to kilometre class; add a local survey map for metres.",
         "LIS3MDL is adequate for the world grid; use an RM3100 on the mast connector for survey-grade work.",
         "Order the board with filled-and-capped vias (three vias-in-pad, see FABRICATION-NOTES.md in the Gerber ZIP).",
-        "Build the firmware with PlatformIO, run the calibration flight, benchmark MagNav against GNSS before relying on it."]))
+        "Flash firmware/release/dronemagnav-firmware.factory.bin, run the calibration flight, benchmark MagNav against GNSS before relying on it."]))
     el.append(Spacer(1, 10))
     el.append(P("Appendix A - Schematic sheets", st_h1))
     el.append(P("Root, power, MCU, sensors, GNSS + storage, interfaces - as plotted from KiCad. "

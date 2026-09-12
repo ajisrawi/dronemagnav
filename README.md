@@ -20,7 +20,7 @@ phone-operated great-circle route planner.
 | PCB 64 × 60 mm, 4-layer, 30.5 mm Pixhawk hole pattern | `hardware/dronemagnav/dronemagnav.kicad_pcb` | routed, 0 unconnected, 0 electrical DRC |
 | Fab package | `hardware/dronemagnav/fab/` (Gerber ZIP, drill, pick-and-place) | ready to upload |
 | BOM | `docs/BOM.csv` | 28 line items, 56 parts, MPNs |
-| Firmware (ESP32-S3, PlatformIO) | `firmware/` | complete source; WMM core-field model validated 100/100 against NOAA test vectors (0.001 nT) |
+| Firmware (ESP32-S3, PlatformIO) | `firmware/`, images in `firmware/release/` | compiles with 0 warnings (Arduino-ESP32 3.3.11); WMM core-field model validated 100/100 against NOAA test vectors (0.001 nT) |
 | Phone UI | `firmware/sdcard/www/index.html` | offline map, tap-to-route, upload |
 | SD-card preparation | `tools/prepare_sd.py` | WDMAM v2 (1.5 GB text) → 51.9 MB binary grid, verified by `tools/wdmam_check.py`; WMM, coastline |
 | Design document | `DroneMagNav-Design-Document.pdf` | study, diagrams, PCB, BOM, verification |
@@ -64,7 +64,10 @@ and copy `firmware/sdcard/*` to the card.
 
 ## Status / caveats
 - Prototype; not certified for any regulated use.
-- Firmware is complete but not yet compile-verified on hardware.
+- Firmware builds cleanly (PlatformIO, pioarduino platform, Arduino-ESP32
+  core 3.3.11: 0 warnings, 1.08 MB flash of 4 MB app partition, 94 KB RAM).
+  Ready-to-flash images are in `firmware/release/`. It has not yet run on
+  real hardware, since the board has not been built.
 - Vias in pads: 74 power vias were moved out of their pads into dog-bone
   stubs. Three remain where the routing leaves no room (BMI088 pads 2 and 4,
   microSD VDD pad) and must be filled and capped, see
