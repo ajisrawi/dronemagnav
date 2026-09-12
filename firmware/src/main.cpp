@@ -104,6 +104,10 @@ void setup() {
     Serial.begin(115200);
     pinMode(PIN_LED_NAV, OUTPUT); pinMode(PIN_LED_FIX, OUTPUT); pinMode(PIN_LED_LINK, OUTPUT);
     pinMode(PIN_SD_DET, INPUT_PULLUP);
+    // GNSS TIMEPULSE is tied inside the MAX-M10S to SAFEBOOT_N through 1 kOhm
+    // (integration manual UBX-20053088, table 1): this pin must never be
+    // driven low at receiver start-up or the module enters safeboot. Input only.
+    pinMode(PIN_GNSS_PPS, INPUT);
 
     spiBus.begin(PIN_SPI_SCK, PIN_SPI_MISO, PIN_SPI_MOSI);
     Serial.printf("[imu] %s\n", imu.begin() ? "ok" : "FAIL");

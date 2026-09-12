@@ -319,9 +319,12 @@ def build_body():
                 "inside, both notched under the module antenna. Autorouted with Freerouting "
                 "constrained to the outer layers and the keep-outs, then scripted power fanout to "
                 "the planes and hand-verified routes for the GNSS UART and the I2C bus. Rules: "
-                "0.2 mm track, 0.15 mm clearance, 0.45/0.2 mm vias; two 0.4 mm vias-in-pad on the "
-                "BMI088 ground pads (0.5 mm-pitch LGA) - tell the assembler to fill or tent them. "
-                "Fab outputs: Gerbers, Excellon drill + map, pick-and-place, Gerber ZIP."))
+                "0.2 mm track, 0.15 mm clearance, 0.45/0.2 mm vias. Power vias are dog-boned "
+                "outside their pads (74 moved by tools/dogbone_vias.py); only three 0.4 mm vias "
+                "remain in pads where the 0.5 mm-pitch BMI088 escapes and the microSD routing leave "
+                "no room (U2 pads 2/4, J3 pad 4) and the fabrication notes require them to be filled "
+                "and capped. Fab outputs: Gerbers, Excellon drill + map, pick-and-place, "
+                "FABRICATION-NOTES.md, Gerber ZIP."))
 
     el.append(P("6   Bill of materials", st_h1))
     rows = []
@@ -365,6 +368,10 @@ def build_body():
          "100 / 100 points, worst error 0.001 nT"],
         ["WDMAM SD-card grid vs source file (7200 x 3601 cells, 51.9 MB)", "tools/wdmam_check.py",
          "225 sample cells identical, 100 % coverage"],
+        ["MAX-M10S straps vs u-blox integration manual UBX-20053088 R05", "manual, table 1 / sec. 4.1",
+         "VIO_SEL open = 3.3 V I/O (as built); TIMEPULSE-SAFEBOOT_N tie honoured in firmware"],
+        ["Vias in pads after dog-bone pass", "tools/fab_audit.py",
+         "3 in small pads (listed for fill & cap), 2 in thermal pads, 0 unconnected, 0 DRC"],
         ["Firmware", "-", "complete source; not yet compile-verified on hardware"]],
         [USABLE - 250, 110, 140]))
 
@@ -372,7 +379,7 @@ def build_body():
     el.extend(bullets([
         "WDMAM resolution and 5 km altitude limit stand-alone accuracy to kilometre class; add a local survey map for metres.",
         "LIS3MDL is adequate for the world grid; use an RM3100 on the mast connector for survey-grade work.",
-        "Verify the MAX-M10S VIO_SEL strap and the 0.4 mm vias-in-pad with the assembler before ordering.",
+        "Order the board with filled-and-capped vias (three vias-in-pad, see FABRICATION-NOTES.md in the Gerber ZIP).",
         "Build the firmware with PlatformIO, run the calibration flight, benchmark MagNav against GNSS before relying on it."]))
     el.append(Spacer(1, 10))
     el.append(P("Appendix A - Schematic sheets", st_h1))

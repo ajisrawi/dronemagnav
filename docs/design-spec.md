@@ -41,7 +41,11 @@ to plan and upload direct (great-circle) routes.
 keep-out (module courtyard respected). USB-C left edge, microSD right edge,
 GNSS + U.FL top-right, sensors centre, magnetometer bottom-centre away from
 the regulators (bottom-left). Rules: 0.2 mm track, 0.15 mm clearance,
-0.45/0.2 mm vias (0.4 mm vias-in-pad on BMI088 pads 2/4).
+0.45/0.2 mm vias. Power vias are dog-boned outside their pads
+(`tools/dogbone_vias.py`); three 0.4 mm vias stay inside pads where the
+routing leaves no room (BMI088 pads 2/4, microSD VDD pad 4) and the
+fabrication notes (`hardware/dronemagnav/fab/FABRICATION-NOTES.md`) require
+those to be filled and capped.
 
 ## 6. Firmware
 See `firmware/README.md` for the module map. Key algorithms:
@@ -74,9 +78,13 @@ confirms the binary holds the same values at the cells the firmware addresses.
 | PCB electrical DRC | 0 violations (22 silkscreen notes) |
 | WMM evaluator vs NOAA WMM2025 test values | 100/100 points, worst error 0.001 nT (tools/wmm_check.py) |
 | WDMAM SD grid vs source text file | 7200 × 3601 cells, 100 % valid, 225 sample cells identical (tools/wdmam_check.py) |
+| MAX-M10S straps vs u-blox integration manual UBX-20053088 R05 | VIO_SEL open = 3.3 V I/O as built; V_BCKP on +3V3 within 1.5–3.6 V; RESET_N pull-up acceptable; TIMEPULSE–SAFEBOOT_N tie → GPIO16 input-only |
+| Vias in pads after dog-bone pass (tools/fab_audit.py) | 74 moved out; 3 remain in small pads (fill & cap), 2 in thermal pads; DRC 0 unconnected, 0 electrical |
 
 ## 9. Known limitations
 - WDMAM resolution/altitude → km-class accuracy without a local survey.
 - LIS3MDL noise adequate for the world grid only; RM3100 recommended for local surveys.
 - Magnetic interference from ESCs/motors must be handled by mounting distance and the Tolles-Lawson calibration.
-- Firmware not yet compile-verified on hardware; MAX-M10S `VIO_SEL` strap to be confirmed.
+- Firmware not yet compile-verified on hardware.
+- V_BCKP is tied to +3V3 (in range, but no hot start after a power cycle);
+  fit a backup cell on V_BCKP if that matters.

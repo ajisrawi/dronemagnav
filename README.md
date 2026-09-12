@@ -65,7 +65,13 @@ and copy `firmware/sdcard/*` to the card.
 ## Status / caveats
 - Prototype; not certified for any regulated use.
 - Firmware is complete but not yet compile-verified on hardware.
-- Two BMI088 ground pads use 0.4 mm vias-in-pad (tell your assembler; fill or
-  tent them). Verify MAX-M10S `VIO_SEL` strap against the integration manual.
+- Vias in pads: 74 power vias were moved out of their pads into dog-bone
+  stubs. Three remain where the routing leaves no room (BMI088 pads 2 and 4,
+  microSD VDD pad) and must be filled and capped, see
+  `hardware/dronemagnav/fab/FABRICATION-NOTES.md` (included in the Gerber ZIP).
+- MAX-M10S straps checked against the u-blox integration manual
+  (UBX-20053088 R05): `VIO_SEL` left open selects 3.3 V I/O, which is what the
+  board supplies, so no change was needed. TIMEPULSE is tied inside the module
+  to SAFEBOOT_N, so the firmware keeps GPIO16 input-only.
 - Map data: WDMAM from the link you supplied; WMM.COF (NOAA) and Natural Earth
   coastline are free downloads you run through `prepare_sd.py`.
