@@ -71,7 +71,7 @@ public:
         double ca = (altKm + d) / r;
         double sa = c2 * crlat * srlat / (r * d);
         double aor = re / r;
-        double ar = aor;
+        double ar = aor * aor;      // (re/r)^(n+2) after the first n step
         double br = 0, bt = 0, bp = 0, bpp = 0;
         double p[13][13], dp[13][13], tc[13][13];
         p[0][0] = 1.0; dp[0][0] = 0.0;
