@@ -1,0 +1,2112 @@
+(kicad_sch (version 20231120) (generator "atc_roip_gen")
+  (uuid "7011e03d-4b27-4254-a113-f3f6695af835")
+  (paper "A3")
+  (title_block
+    (title "Power - USB/FC 5V in, 3V3 digital + 3V3A sensor rails")
+    (company "ATC RoIP Gateway Project")
+    (rev "A")
+  )
+  (lib_symbols
+    (symbol "Device:C"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "C"
+			(at 0.635 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C"
+			(at 0.635 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 0.9652 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "cap capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "C_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "C_0_1"
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "Device:D_Schottky"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D_Schottky"
+			(at 0 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "diode Schottky"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "D_Schottky_0_1"
+			(polyline
+				(pts
+					(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 0) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "D_Schottky_1_1"
+			(pin passive line
+				(at -3.81 0 0)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 2.54)
+				(name "A"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "Device:LED"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 0 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "LED diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "LED_0_1"
+			(polyline
+				(pts
+					(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -1.27 0) (xy 1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -1.27 -1.27) (xy -1.27 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "LED_1_1"
+			(pin passive line
+				(at -3.81 0 0)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 2.54)
+				(name "A"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "Device:R"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "R"
+			(at 2.032 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R"
+			(at 0 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at -1.778 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "R res resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "R_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "R_0_1"
+			(rectangle
+				(start -1.016 -2.54)
+				(end 1.016 2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "R_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "Regulator_Linear:AMS1117-3.3"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "U"
+			(at -3.81 3.175 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMS1117-3.3"
+			(at 0 3.175 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+			(at 0 5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.advanced-monolithic.com/pdf/ds1117.pdf"
+			(at 2.54 -6.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "linear regulator ldo fixed positive"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOT?223*TabPin2*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "AMS1117-3.3_0_1"
+			(rectangle
+				(start -5.08 -5.08)
+				(end 5.08 1.905)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "AMS1117-3.3_1_1"
+			(pin power_in line
+				(at 0 -7.62 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_out line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name "VO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name "VI"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "Regulator_Linear:AP2112K-3.3"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "U"
+			(at -5.08 5.715 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AP2112K-3.3"
+			(at 0 5.715 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 0 8.255 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "linear regulator ldo fixed positive"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOT?23?5*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "AP2112K-3.3_0_1"
+			(rectangle
+				(start -5.08 4.445)
+				(end 5.08 -5.08)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "AP2112K-3.3_1_1"
+			(pin power_in line
+				(at -7.62 2.54 0)
+				(length 2.54)
+				(name "VIN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -7.62 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name "EN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin no_connect line
+				(at 5.08 0 180)
+				(length 2.54)
+				(hide yes)
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_out line
+				(at 7.62 2.54 180)
+				(length 2.54)
+				(name "VOUT"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "power:+3.3VA"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3VA"
+			(at 0 3.556 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "+3.3VA_0_1"
+			(polyline
+				(pts
+					(xy -0.762 1.27) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0.762 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "+3.3VA_1_1"
+			(pin power_in line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "power:+3V3"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 0 3.556 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "+3V3_0_1"
+			(polyline
+				(pts
+					(xy -0.762 1.27) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0.762 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "+3V3_1_1"
+			(pin power_in line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "power:+5V"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 0 3.556 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "+5V_0_1"
+			(polyline
+				(pts
+					(xy -0.762 1.27) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0.762 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "+5V_1_1"
+			(pin power_in line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "power:GND"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -6.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "GND_0_1"
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "GND_1_1"
+			(pin power_in line
+				(at 0 0 270)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+    (symbol "power:PWR_FLAG"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#FLG"
+			(at 0 1.905 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 0 3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "flag power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_0"
+			(pin power_out line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_1"
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+  )
+  (wire (pts (xy 63.5 59.69) (xy 68.58 59.69)) (stroke (width 0) (type default)) (uuid "2094773b-9cd6-4cd6-87ce-f6bc76b8d927"))
+  (wire (pts (xy 63.5 80.01) (xy 68.58 80.01)) (stroke (width 0) (type default)) (uuid "7c157e2c-1a0b-41ce-9f43-ea7a8a34153d"))
+  (wire (pts (xy 199.39 63.5) (xy 199.39 68.58)) (stroke (width 0) (type default)) (uuid "1d8840c2-66ed-4c4f-9a96-e0f8c42e2be5"))
+  (wire (pts (xy 218.44 74.93) (xy 223.52 74.93)) (stroke (width 0) (type default)) (uuid "a5b64e21-166c-4fdb-86f5-d86f5fed65b3"))
+  (no_connect (at 134.62 110.49) (uuid "41b0350d-a775-4f0f-9faa-8720a663d080"))
+  (global_label "VBUS" (shape input) (at 68.58 59.69 0) (fields_autoplaced yes)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "db5c866f-cc08-4aae-8085-05a4a5fb3037")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 68.58 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  )
+  (global_label "5V_FC" (shape input) (at 68.58 80.01 0) (fields_autoplaced yes)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "a3bb9a65-1b18-4fab-a059-fc9bdda6d50e")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 68.58 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  )
+  (global_label "PWR_LED_A" (shape input) (at 199.39 68.58 270) (fields_autoplaced yes)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid "0008278b-79e3-464d-be74-fcb21172713e")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 199.39 68.58 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  )
+  (global_label "PWR_LED_A" (shape input) (at 223.52 74.93 0) (fields_autoplaced yes)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "e9b3d000-d310-4126-a5c0-9cae5526a9d3")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 223.52 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  )
+  (text "Two 5 V sources diode-ORed: USB-C VBUS (bench) and the flight-controller TELEM port (5V_FC, in flight). SS14 drop ~0.35 V." (exclude_from_sim no) (at 30 160 0) (effects (font (size 2.0 2.0)) (justify left bottom)) (uuid "80781ec8-fdee-492a-93a3-7417d175e92b"))
+  (text "AMS1117 (1 A) feeds ESP32/SD/GNSS; AP2112K (low-noise LDO) feeds the IMU/magnetometer/baro on the +3V3A rail." (exclude_from_sim no) (at 30 167 0) (effects (font (size 2.0 2.0)) (justify left bottom)) (uuid "dcd1f6fb-fe9c-44e5-88ed-c5d562faad69"))
+  (symbol (lib_id "power:+5V") (at 55.88 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "e2261488-0b6d-4cdf-b818-dc5baae058e0")
+    (property "Reference" "#PWR2001" (at 55.88 64.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 55.88 63.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 55.88 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 55.88 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "7113ae8f-7e28-4c0c-b8d4-7c9b5b0acb65"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2001") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 55.88 80.01 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "40ea896e-55a5-4649-ba6d-4b9b38988490")
+    (property "Reference" "#PWR2002" (at 55.88 85.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 55.88 83.51 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 55.88 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 55.88 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "5cfb9d4c-6017-4ad0-a392-344e5bfa6aa6"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2002") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 90.17 66.04 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "b395d281-e3ef-417a-9a46-8e6032529376")
+    (property "Reference" "#PWR2003" (at 90.17 71.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 90.17 69.54 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 90.17 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 90.17 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "1b154e2c-4d86-4418-8eb6-4e6564024150"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2003") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 90.17 73.66 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "0b6dc9cc-538c-43f9-9bef-57e3f218f156")
+    (property "Reference" "#PWR2004" (at 90.17 78.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 90.17 77.16 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 90.17 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 90.17 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "a66f51fd-4b6a-4bb5-9d86-23cd4ab0f53a"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2004") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 129.54 67.31 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "5585638a-cbae-4169-8fa4-f51e7128dc99")
+    (property "Reference" "#PWR2005" (at 129.54 72.31 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 129.54 70.81 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 129.54 67.31 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 129.54 67.31 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "5d101ed8-1161-45b0-8f35-d91baea01efe"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2005") (unit 1))))
+  )
+  (symbol (lib_id "power:+3V3") (at 137.16 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "251f3838-e857-4b27-a54d-294c47759ab9")
+    (property "Reference" "#PWR2006" (at 137.16 64.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3V3" (at 137.16 63.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 137.16 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 137.16 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "fad043ea-870b-444d-b720-89a74469dd3a"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2006") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 121.92 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "12bcbb42-2b23-45c8-9ade-cb58b884da6f")
+    (property "Reference" "#PWR2007" (at 121.92 64.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 121.92 63.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 121.92 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 121.92 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "788e616e-8df7-4a1a-ad18-d2bbdf86ec33"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2007") (unit 1))))
+  )
+  (symbol (lib_id "power:+3V3") (at 154.94 66.04 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "bdc30392-f74e-4cbc-94a7-764804152f56")
+    (property "Reference" "#PWR2008" (at 154.94 71.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3V3" (at 154.94 69.54 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 154.94 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "7f2dd1a1-cf88-4499-9901-f703ac2b0de8"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2008") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 154.94 73.66 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "eed766b1-3953-4645-b1a6-a10940f338c1")
+    (property "Reference" "#PWR2009" (at 154.94 78.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 154.94 77.16 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 154.94 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "35004197-9e66-4893-b90e-4c9a35686906"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2009") (unit 1))))
+  )
+  (symbol (lib_id "power:+3V3") (at 167.64 66.04 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "76a5cffc-0cfb-491d-901b-fe2bf5db5f47")
+    (property "Reference" "#PWR2010" (at 167.64 71.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3V3" (at 167.64 69.54 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 167.64 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 66.04 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "5875745a-cc4a-4ffe-b914-dfc2755b5922"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2010") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 167.64 73.66 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "f9f4ad76-858a-4d1f-98ff-8d7b3ed8c79d")
+    (property "Reference" "#PWR2011" (at 167.64 78.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 167.64 77.16 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 167.64 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "4dbc98a1-6c61-464e-9b44-6673ccb0866c"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2011") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 121.92 107.95 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "9b16161f-932f-4138-b6b4-106f635865fc")
+    (property "Reference" "#PWR2012" (at 121.92 112.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 121.92 111.45 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 121.92 107.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 121.92 107.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "6f63304b-0447-4e13-be9c-9b8ca7c9a694"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2012") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 129.54 118.11 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "f1bb23e6-ecb8-4a8a-8086-58328aef952a")
+    (property "Reference" "#PWR2013" (at 129.54 123.11 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 129.54 121.61 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 129.54 118.11 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 129.54 118.11 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "681a487c-8245-4968-bc94-46cc7af1316b"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2013") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 121.92 110.49 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "63db0842-0918-4ddd-ab4b-cb724dcfd850")
+    (property "Reference" "#PWR2014" (at 121.92 115.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 121.92 113.99 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 121.92 110.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 121.92 110.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "75fa2fca-4291-4eeb-9d9f-aa93beb35890"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2014") (unit 1))))
+  )
+  (symbol (lib_id "power:+3.3VA") (at 137.16 107.95 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "1953bc51-e8b3-4077-a5b9-f680ac90a772")
+    (property "Reference" "#PWR2015" (at 137.16 112.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3.3VA" (at 137.16 111.45 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 137.16 107.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 137.16 107.95 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "f45b02b1-34bf-4e50-afe9-7cc29421622c"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2015") (unit 1))))
+  )
+  (symbol (lib_id "power:+5V") (at 105.41 120.65 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "c0ee6be4-8375-46d9-a3c2-7650be77a06a")
+    (property "Reference" "#PWR2016" (at 105.41 125.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+5V" (at 105.41 124.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 105.41 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 105.41 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "83886537-5c17-4888-bb4f-7f7bc2e583d1"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2016") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 105.41 128.27 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "d3eb7d86-ba3f-41b9-b4c6-7d3203d250d5")
+    (property "Reference" "#PWR2017" (at 105.41 133.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 105.41 131.77 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 105.41 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 105.41 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "e50a8bda-9e6f-4442-93fe-8dce9bd82419"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2017") (unit 1))))
+  )
+  (symbol (lib_id "power:+3.3VA") (at 154.94 120.65 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "88038ba4-bf6b-428c-8122-ad421221a56c")
+    (property "Reference" "#PWR2018" (at 154.94 125.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3.3VA" (at 154.94 124.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 154.94 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "82ff602c-1a98-4909-a52a-682c0cafafdd"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2018") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 154.94 128.27 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "05db5973-05eb-4f92-bddc-363b77b3e755")
+    (property "Reference" "#PWR2019" (at 154.94 133.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 154.94 131.77 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 154.94 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "e2b5b1e1-2d3d-4b40-a562-7a6475c46de1"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2019") (unit 1))))
+  )
+  (symbol (lib_id "power:+3.3VA") (at 167.64 120.65 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "76a94aa7-ae71-48dc-a848-639221de251f")
+    (property "Reference" "#PWR2020" (at 167.64 125.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3.3VA" (at 167.64 124.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 167.64 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 120.65 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "f360d093-bdaa-4d83-8ded-bc4b9be1a5f3"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2020") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 167.64 128.27 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "c1105888-47b9-421c-915a-22a0e8e91cfe")
+    (property "Reference" "#PWR2021" (at 167.64 133.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 167.64 131.77 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 167.64 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 128.27 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "831ad2d2-0e2f-440c-9319-156972a1eb22"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2021") (unit 1))))
+  )
+  (symbol (lib_id "power:+3V3") (at 199.39 55.88 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "28686c17-f61c-4354-9f16-466716d5fb6c")
+    (property "Reference" "#PWR2022" (at 199.39 60.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "+3V3" (at 199.39 59.38 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 199.39 55.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 199.39 55.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "51b6de32-5b5c-4b27-8acc-ac543b01fbcd"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2022") (unit 1))))
+  )
+  (symbol (lib_id "power:GND") (at 210.82 74.93 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "d910a611-8e7d-4b42-98fe-86d7ec24ac2f")
+    (property "Reference" "#PWR2023" (at 210.82 79.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "GND" (at 210.82 78.43 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 210.82 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 210.82 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "fec5dff1-d3cd-48fa-9797-43e89eb95b28"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2023") (unit 1))))
+  )
+  (symbol (lib_id "power:PWR_FLAG") (at 63.5 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "4937b6aa-efa4-47d6-9450-47d2e751f15e")
+    (property "Reference" "#PWR2024" (at 63.5 64.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "PWR_FLAG" (at 63.5 63.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 63.5 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 63.5 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "c903e9d1-9a79-4e1e-969d-be401d1ea959"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2024") (unit 1))))
+  )
+  (symbol (lib_id "power:PWR_FLAG") (at 63.5 80.01 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "49c2e828-246c-417a-9f4d-a3524eee35c5")
+    (property "Reference" "#PWR2025" (at 63.5 85.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "PWR_FLAG" (at 63.5 83.51 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 63.5 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 63.5 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "6c979a97-4c83-4009-b269-43f5f2d52ca7"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2025") (unit 1))))
+  )
+  (symbol (lib_id "power:PWR_FLAG") (at 55.88 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "ff7a0e1a-c79b-4bd6-84b4-78c998ba1a06")
+    (property "Reference" "#PWR2026" (at 55.88 64.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "PWR_FLAG" (at 55.88 63.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 55.88 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 55.88 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "8be3409f-f91d-438f-8bcf-622a0e457fa8"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2026") (unit 1))))
+  )
+  (symbol (lib_id "power:PWR_FLAG") (at 90.17 73.66 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "af61fa2d-0ae7-46ff-bf18-0e112e970433")
+    (property "Reference" "#PWR2027" (at 90.17 78.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "PWR_FLAG" (at 90.17 77.16 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 90.17 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 90.17 73.66 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "91b52c2f-5bb8-4c52-aea8-a36258a68fd1"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "#PWR2027") (unit 1))))
+  )
+  (symbol (lib_id "Device:D_Schottky") (at 59.69 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "f5d99a17-5c8f-4dd3-9a57-8a792f8d72ed")
+    (property "Reference" "D1" (at 59.69 62.23 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SS14" (at 59.69 57.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SMA" (at 59.69 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 59.69 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "6d95ecfa-bf9b-4318-8f45-c063b3f90b19"))
+    (pin "2" (uuid "bc84a5ae-d4e0-462e-b165-73e52161d681"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "D1") (unit 1))))
+  )
+  (symbol (lib_id "Device:D_Schottky") (at 59.69 80.01 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "0ebae096-3106-42ab-8e02-26b8cd6beb9b")
+    (property "Reference" "D2" (at 59.69 82.55 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SS14" (at 59.69 77.47 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SMA" (at 59.69 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 59.69 80.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "528440d7-26d6-4512-9092-b5a22df8cd20"))
+    (pin "2" (uuid "c1dbbce8-4bc1-4d1f-ab8b-cb1926d45254"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "D2") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 90.17 69.85 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "f49b5e0f-a702-474b-9202-5e0d945f6e47")
+    (property "Reference" "C1" (at 90.17 72.39 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "10uF" (at 90.17 67.31 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 90.17 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 90.17 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "fe3b0114-3c35-4f36-903b-f486dc46a9d4"))
+    (pin "2" (uuid "3e571f6e-6b67-47f4-b1e4-e67986a8587b"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C1") (unit 1))))
+  )
+  (symbol (lib_id "Regulator_Linear:AMS1117-3.3") (at 129.54 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "9260670e-b361-4fbb-829b-1736d976b8c4")
+    (property "Reference" "U6" (at 129.54 62.23 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "AMS1117-3.3" (at 129.54 57.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2" (at 129.54 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 129.54 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "051dd4b5-baaa-4f71-a101-6af4443ab88e"))
+    (pin "2" (uuid "6b171a2c-20bf-41a1-bbd5-a279d76258d7"))
+    (pin "3" (uuid "ea0503d2-b30a-45cc-80f0-387fa1dede89"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "U6") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 154.94 69.85 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "639492b9-8ba8-47f1-9489-c765a0b77719")
+    (property "Reference" "C2" (at 154.94 72.39 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "10uF" (at 154.94 67.31 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 154.94 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "c32edf6c-60da-46a2-a5be-ca3d7cdc5416"))
+    (pin "2" (uuid "8acee0e6-0174-401e-a299-c659ce2e4001"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C2") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 167.64 69.85 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "996ac19c-da44-4fda-834f-1382e265fa2a")
+    (property "Reference" "C3" (at 167.64 72.39 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "100nF" (at 167.64 67.31 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 167.64 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 69.85 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "d2f25ad1-06d6-409d-9458-9fdf7fd72677"))
+    (pin "2" (uuid "a848221f-29f0-4c99-8095-573685c16973"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C3") (unit 1))))
+  )
+  (symbol (lib_id "Regulator_Linear:AP2112K-3.3") (at 129.54 110.49 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "c8259b62-5e2a-4bce-806a-ca8c18a27052")
+    (property "Reference" "U7" (at 129.54 113.03 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "AP2112K-3.3" (at 129.54 107.95 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (at 129.54 110.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 129.54 110.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "67a7365c-bc0e-4991-a0ad-f19dbe03170c"))
+    (pin "2" (uuid "a7e7bbfc-b9e7-4d7a-b228-aa995a33111c"))
+    (pin "3" (uuid "2cbb5721-400b-4efd-872b-d919091c5f7d"))
+    (pin "4" (uuid "e1fc43cc-88f5-449c-b642-09c984712062"))
+    (pin "5" (uuid "d0b6f474-ca74-43d8-b108-9b54b0848db8"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "U7") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 105.41 124.46 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "a8ab8c9b-06c9-48a0-98b1-ba867c046a44")
+    (property "Reference" "C4" (at 105.41 127 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1uF" (at 105.41 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 105.41 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 105.41 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "7e382f97-dd97-4920-9179-f6b2ed621c90"))
+    (pin "2" (uuid "8f456336-15fb-4b40-8375-173828bc8a1c"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C4") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 154.94 124.46 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "84cc8583-82d5-42d9-b70a-9d74c9ee03c4")
+    (property "Reference" "C5" (at 154.94 127 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "10uF" (at 154.94 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 154.94 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 154.94 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "565ab310-f811-475a-8357-ef6d24d18ab8"))
+    (pin "2" (uuid "ffa5d8c7-dc4c-4385-9a80-6bdf9af687f0"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C5") (unit 1))))
+  )
+  (symbol (lib_id "Device:C") (at 167.64 124.46 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "ff356619-a1d7-4d2e-ae48-b1c0b8785664")
+    (property "Reference" "C6" (at 167.64 127 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "100nF" (at 167.64 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 167.64 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 167.64 124.46 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "fb7d354c-984f-4e7a-a86f-cefa0004390b"))
+    (pin "2" (uuid "cdd7144f-38ce-40a7-928c-e15a3e01f88c"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "C6") (unit 1))))
+  )
+  (symbol (lib_id "Device:R") (at 199.39 59.69 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "a9a92438-9100-478a-bfa3-7493093cf8f5")
+    (property "Reference" "R1" (at 199.39 62.23 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1K" (at 199.39 57.15 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 199.39 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 199.39 59.69 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "330a58eb-42a6-47c8-a7ee-73161c623ac6"))
+    (pin "2" (uuid "d03b9a26-39a7-43da-9161-dff92cc74b9f"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "R1") (unit 1))))
+  )
+  (symbol (lib_id "Device:LED") (at 214.63 74.93 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+    (uuid "7219661b-b865-4d17-8dbc-647351dfddfb")
+    (property "Reference" "D3" (at 214.63 77.47 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PWR" (at 214.63 72.39 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 214.63 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 214.63 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+
+    (pin "1" (uuid "08ebb140-c3cf-4f5c-b2a7-91fe6fa4d2d5"))
+    (pin "2" (uuid "65e2ba71-4159-4704-8df5-fe1de86e9837"))
+    (instances (project "dronemagnav" (path "/3085e4fe-e509-431f-a981-ab71affbbca7/7011e03d-4b27-4254-a113-f3f6695af835" (reference "D3") (unit 1))))
+  )
+)

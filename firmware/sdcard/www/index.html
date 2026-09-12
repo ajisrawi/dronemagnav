@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>DroneMagNav</title>
+<style>
+  :root { --bg:#0f172a; --panel:#1e293b; --ink:#e2e8f0; --dim:#94a3b8; --acc:#38bdf8; --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.4 system-ui,-apple-system,sans-serif; display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+  header { padding:8px 12px; background:var(--panel); display:flex; justify-content:space-between; align-items:center; font-weight:600; }
+  #mode { padding:2px 8px; border-radius:6px; background:#334155; font-size:13px; }
+  #mode.GNSS { background:var(--ok); color:#052e16; } #mode.MAGNAV { background:var(--acc); color:#082f49; }
+  #mode.CAL { background:var(--warn); color:#451a03; } #mode.INIT { background:#475569; }
+  #map { flex:1; touch-action:none; background:#0b1120; display:block; width:100%; }
+  #bar { background:var(--panel); padding:8px 10px; display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:13px; }
+  #bar div span { color:var(--dim); }
+  #ctl { background:var(--panel); padding:8px 10px 14px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  button { border:0; border-radius:10px; padding:12px 8px; font-size:15px; font-weight:600; color:#fff; background:#334155; }
+  button.p { background:var(--acc); color:#082f49; } button.g { background:var(--ok); color:#052e16; }
+  button.w { background:var(--warn); color:#451a03; } button:disabled { opacity:.45; }
+  #hint { grid-column:1/3; color:var(--dim); font-size:12px; text-align:center; }
+  #alt { grid-column:1/3; display:flex; gap:8px; align-items:center; font-size:13px; }
+  #alt input { flex:1; padding:8px; border-radius:8px; border:1px solid #475569; background:#0f172a; color:var(--ink); font-size:15px; }
+</style>
+</head>
+<body>
+<header><span>DroneMagNav</span><span id="mode" class="INIT">INIT</span></header>
+<canvas id="map"></canvas>
+<div id="bar">
+  <div><span>Position</span><br><b id="pos">--</b></div>
+  <div><span>Accuracy</span><br><b id="sig">--</b></div>
+  <div><span>Field / anomaly</span><br><b id="fld">--</b></div>
+  <div><span>Heading · GNSS · FC</span><br><b id="misc">--</b></div>
+</div>
+<div id="ctl">
+  <button id="bA" class="p">Set START = here</button>
+  <button id="bB">Set DEST = tap map</button>
+  <div id="alt"><label>Alt (m rel)</label><input id="altIn" type="number" value="50"><label>Spacing (m)</label><input id="spIn" type="number" value="500"></div>
+  <button id="bR" class="g" disabled>Compute route</button>
+  <button id="bU" disabled>Upload to flight controller</button>
+  <button id="bC" class="w">Start calibration</button>
+  <button id="bM">Toggle anomaly layer</button>
+  <div id="hint">Tap the map to place points · drag to pan · pinch to zoom</div>
+</div>
+<script>
+(() => {
+  const cv = document.getElementById('map'), ctx = cv.getContext('2d');
+  let W, H, coast = null, anom = null, showAnom = false;
+  let view = { lat: 20, lon: 0, ppd: 3 };          // centre + pixels per degree
+  let A = null, B = null, route = null, me = null, picking = 'B', calOn = false;
+
+  function resize() { W = cv.width = cv.clientWidth * devicePixelRatio; H = cv.height = cv.clientHeight * devicePixelRatio; draw(); }
+  window.addEventListener('resize', resize);
+
+  const px = (lat, lon) => [W / 2 + (lon - view.lon) * view.ppd * devicePixelRatio,
+                            H / 2 - (lat - view.lat) * view.ppd * devicePixelRatio];
+  const ll = (x, y) => [view.lat - (y - H / 2) / (view.ppd * devicePixelRatio),
+                        view.lon + (x - W / 2) / (view.ppd * devicePixelRatio)];
+
+  function draw() {
+    ctx.fillStyle = '#0b1120'; ctx.fillRect(0, 0, W, H);
+    // anomaly heat layer
+    if (showAnom && anom) {
+      const n = anom.n, cs = anom.span / n;
+      for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+        const v = anom.v[j * n + i]; if (v === null) continue;
+        const t = Math.max(-1, Math.min(1, v / 300));
+        ctx.fillStyle = t > 0 ? `rgba(239,68,68,${0.15 + 0.5 * t})` : `rgba(56,189,248,${0.15 - 0.5 * t})`;
+        const [x0, y0] = px(anom.lat0 + (j + 1) * cs, anom.lon0 + i * cs);
+        const [x1, y1] = px(anom.lat0 + j * cs, anom.lon0 + (i + 1) * cs);
+        ctx.fillRect(x0, y0, x1 - x0 + 1, y1 - y0 + 1);
+      }
+    }
+    // graticule
+    ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1;
+    const step = view.ppd > 40 ? 1 : view.ppd > 8 ? 5 : view.ppd > 2 ? 10 : 30;
+    for (let lo = -180; lo <= 180; lo += step) { const [x] = px(0, lo); ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+    for (let la = -90; la <= 90; la += step) { const [, y] = px(la, 0); ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+    // coastline (GeoJSON LineString / MultiLineString / Polygon rings)
+    if (coast) {
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.2 * devicePixelRatio;
+      for (const f of coast.features) {
+        const g = f.geometry, parts = g.type === 'LineString' ? [g.coordinates] :
+          g.type === 'Polygon' ? g.coordinates : g.type === 'MultiPolygon' ? g.coordinates.flat() : g.coordinates;
+        for (const line of parts) {
+          ctx.beginPath();
+          line.forEach((c, k) => { const [x, y] = px(c[1], c[0]); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+          ctx.stroke();
+        }
+      }
+    }
+    // route
+    if (route) {
+      ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3 * devicePixelRatio; ctx.beginPath();
+      route.wps.forEach((w, k) => { const [x, y] = px(w[0], w[1]); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      ctx.stroke();
+    }
+    const dot = (p, col, lab) => { if (!p) return; const [x, y] = px(p[0], p[1]);
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 7 * devicePixelRatio, 0, 7); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = `${12 * devicePixelRatio}px sans-serif`; ctx.fillText(lab, x + 9 * devicePixelRatio, y - 6 * devicePixelRatio); };
+    dot(A, '#22c55e', 'START'); dot(B, '#f59e0b', 'DEST'); dot(me, '#ffffff', 'drone');
+  }
+
+  // ---- touch: tap = place point, drag = pan, pinch = zoom ----------------
+  let touches = {}, moved = false, pinch0 = null;
+  cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); touches[e.pointerId] = [e.clientX, e.clientY]; moved = false;
+    const t = Object.values(touches); if (t.length === 2) pinch0 = { d: Math.hypot(t[0][0] - t[1][0], t[0][1] - t[1][1]), ppd: view.ppd }; });
+  cv.addEventListener('pointermove', e => {
+    if (!(e.pointerId in touches)) return;
+    const [x0, y0] = touches[e.pointerId], t = Object.values(touches);
+    if (t.length === 1) {
+      const dx = e.clientX - x0, dy = e.clientY - y0;
+      if (Math.hypot(dx, dy) > 4) moved = true;
+      view.lon -= dx / view.ppd; view.lat += dy / view.ppd;
+    } else if (t.length === 2 && pinch0) {
+      const d = Math.hypot(t[0][0] - t[1][0], t[0][1] - t[1][1]);
+      view.ppd = Math.max(0.5, Math.min(2000, pinch0.ppd * d / pinch0.d)); moved = true;
+    }
+    touches[e.pointerId] = [e.clientX, e.clientY]; draw();
+  });
+  cv.addEventListener('pointerup', e => {
+    if (!moved && Object.keys(touches).length === 1) {
+      const p = ll(e.clientX * devicePixelRatio, e.clientY * devicePixelRatio);
+      if (picking === 'A') A = p; else B = p;
+      route = null; document.getElementById('bR').disabled = !(A && B); document.getElementById('bU').disabled = true; draw();
+    }
+    delete touches[e.pointerId]; pinch0 = null;
+  });
+  cv.addEventListener('wheel', e => { view.ppd = Math.max(0.5, Math.min(2000, view.ppd * (e.deltaY < 0 ? 1.2 : 0.83))); draw(); });
+
+  // ---- buttons -------------------------------------------------------------
+  document.getElementById('bA').onclick = () => { if (me) { A = me.slice(); picking = 'B'; } else picking = 'A';
+    document.getElementById('bR').disabled = !(A && B); draw(); };
+  document.getElementById('bB').onclick = () => { picking = 'B'; };
+  document.getElementById('bR').onclick = async () => {
+    const alt = document.getElementById('altIn').value, sp = document.getElementById('spIn').value;
+    const r = await fetch(`/api/route?lat1=${A[0]}&lon1=${A[1]}&lat2=${B[0]}&lon2=${B[1]}&alt=${alt}&spacing=${sp}`);
+    route = await r.json();
+    document.getElementById('hint').textContent = `Great circle: ${(route.distance_m / 1000).toFixed(2)} km, bearing ${route.bearing_deg}°, ${route.wps.length} waypoints`;
+    document.getElementById('bU').disabled = false; draw();
+  };
+  document.getElementById('bU').onclick = async () => {
+    document.getElementById('bU').disabled = true;
+    const r = await (await fetch('/api/upload', { method: 'POST' })).json();
+    document.getElementById('hint').textContent = r.ok ? 'Mission uploaded to flight controller ✓' : 'Upload failed: ' + r.err;
+    document.getElementById('bU').disabled = false;
+  };
+  document.getElementById('bC').onclick = async () => {
+    calOn = !calOn; await fetch('/api/cal?start=' + (calOn ? 1 : 0), { method: 'POST' });
+    document.getElementById('bC').textContent = calOn ? 'Stop calibration (fly figure-8s)' : 'Start calibration';
+  };
+  document.getElementById('bM').onclick = async () => {
+    showAnom = !showAnom;
+    if (showAnom) { const r = await fetch(`/api/anom?lat=${view.lat}&lon=${view.lon}&span=${Math.min(20, 400 / view.ppd)}&n=40`); anom = await r.json(); }
+    draw();
+  };
+
+  // ---- status polling -----------------------------------------------------
+  async function status() {
+    try {
+      const s = await (await fetch('/api/status')).json();
+      const m = document.getElementById('mode'); m.textContent = s.mode; m.className = s.mode;
+      if (s.lat || s.lon) { me = [s.lat, s.lon]; if (!coast || (!A && !B)) { /* keep view */ } }
+      document.getElementById('pos').textContent = `${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}  ${s.alt.toFixed(0)} m`;
+      document.getElementById('sig').textContent = s.sigma > 5000 ? '--' : `± ${s.sigma.toFixed(0)} m`;
+      document.getElementById('fld').textContent = `${s.field.toFixed(0)} nT / ${isNaN(s.anom) ? '--' : s.anom.toFixed(0)} nT`;
+      document.getElementById('misc').textContent = `${s.hdg.toFixed(0)}° · ${s.fix ? s.sats + ' sats' : 'no fix'} · ${s.fc ? 'FC ok' : 'no FC'}`;
+      draw();
+    } catch (e) {}
+  }
+  setInterval(status, 1000);
+
+  // ---- offline coastline (Natural Earth 1:110m from the SD card) ----------
+  fetch('/api/coast').then(r => r.json()).then(j => { coast = j; draw(); }).catch(() => {});
+  resize(); status();
+})();
+</script>
+</body>
+</html>

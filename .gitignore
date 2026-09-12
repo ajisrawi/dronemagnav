@@ -1,0 +1,25 @@
+# large / third-party data (regenerate with tools/prepare_sd.py)
+data/
+firmware/sdcard/maps/
+firmware/.pio/
+firmware/build/
+
+# python
+__pycache__/
+*.pyc
+
+# KiCad backups / caches / session files
+*-backups/
+*.kicad_prl
+*.lck
+fp-info-cache
+_autosave-*
+*-bak
+hardware/dronemagnav/.history/
+
+# intermediate routing / reports
+hardware/dronemagnav/*.dsn
+hardware/dronemagnav/*.ses
+hardware/dronemagnav/erc.rpt
+hardware/dronemagnav/drc.rpt
+hardware/dronemagnav/_design-doc-body.pdf
