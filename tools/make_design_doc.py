@@ -110,7 +110,7 @@ def arrow(d, x1, y1, x2, y2, color=SLATE, both=False, label=None):
 def diagram_system():
     W, H = 493, 180
     d = Drawing(W, H)
-    box(d, 4, 118, 90, 44, "Phone", ["WiFi AP page", "map Â· route Â· status"], fill=SKY)
+    box(d, 4, 118, 90, 44, "Phone", ["WiFi AP page", "map · route · status"], fill=SKY)
     box(d, 130, 118, 100, 44, "DroneMagNav", ["ESP32-S3 board", "this design"],
         fill=GREEN_L, stroke=GREEN, fs=9)
     box(d, 270, 118, 96, 44, "Flight controller", ["ArduPilot / PX4", "MAVLink TELEM"],
@@ -148,7 +148,7 @@ def diagram_board():
     d.add(Rect(190, 228, 116, 10, fillColor=AMBER_L, strokeColor=AMBER, strokeWidth=.8))
     d.add(String(248, 231, "antenna keep-out", fontName="Helvetica", fontSize=5.5,
                  fillColor=AMBER, textAnchor="middle"))
-    box(d, 66, 176, 60, 40, "Buttons", ["RESET Â· BOOT"], fill=LIGHT, stroke=SLATE)
+    box(d, 66, 176, 60, 40, "Buttons", ["RESET · BOOT"], fill=LIGHT, stroke=SLATE)
     box(d, 66, 120, 60, 40, "USB-C", ["power + USB", "ESD protected"], fill=SKY)
     box(d, 340, 176, 88, 40, "GNSS", ["MAX-M10S", "U.FL antenna"], fill=LIGHT, stroke=SLATE)
     box(d, 340, 110, 88, 52, "microSD", ["SDMMC 4-bit", "map storage"], fill=LIGHT, stroke=SLATE)
@@ -201,7 +201,7 @@ def on_content_page(canv, doc):
     canv.setFont("Helvetica", 7.5); canv.setFillColor(SLATE)
     canv.drawString(MARGIN, PAGE_H - 12.2 * mm, DOC_TITLE)
     canv.drawRightString(PAGE_W - MARGIN, PAGE_H - 12.2 * mm,
-                         "Rev A Â· " + date.today().strftime("%d %b %Y"))
+                         "Rev A · " + date.today().strftime("%d %b %Y"))
     canv.line(MARGIN, 13 * mm, PAGE_W - MARGIN, 13 * mm)
     canv.drawString(MARGIN, 9.5 * mm, "Prototype - not certified for any regulated use")
     canv.drawRightString(PAGE_W - MARGIN, 9.5 * mm, f"Page {doc.page}")
@@ -213,7 +213,7 @@ def on_cover_page(canv, doc):
     canv.setFillColor(NAVY); canv.rect(0, PAGE_H - 118 * mm, PAGE_W, 118 * mm, stroke=0, fill=1)
     canv.setFillColor(AMBER); canv.rect(0, PAGE_H - 119.6 * mm, PAGE_W, 1.6 * mm, stroke=0, fill=1)
     canv.setFillColor(HexColor("#9FB8D0")); canv.setFont("Helvetica-Bold", 10)
-    canv.drawString(MARGIN, PAGE_H - 40 * mm, "DESIGN DOCUMENT Â· REV A")
+    canv.drawString(MARGIN, PAGE_H - 40 * mm, "DESIGN DOCUMENT · REV A")
     canv.setFillColor(white); canv.setFont("Helvetica-Bold", 28)
     canv.drawString(MARGIN, PAGE_H - 54 * mm, "DroneMagNav")
     canv.setFont("Helvetica", 14); canv.setFillColor(HexColor("#D3E1EE"))
@@ -221,15 +221,15 @@ def on_cover_page(canv, doc):
                     "Magnetic-anomaly navigation board and route planner for drones")
     canv.setFont("Helvetica", 9.5)
     y = PAGE_H - 80 * mm
-    for line in ("ESP32-S3  Â·  BMI088 IMU  Â·  LIS3MDL magnetometer  Â·  BMP280  Â·  u-blox MAX-M10S",
-                 "WDMAM world anomaly map on microSD  Â·  particle-filter MagNav  Â·  MAVLink to the autopilot",
+    for line in ("ESP32-S3  ·  BMI088 IMU  ·  LIS3MDL magnetometer  ·  BMP280  ·  u-blox MAX-M10S",
+                 "WDMAM world anomaly map on microSD  ·  particle-filter MagNav  ·  MAVLink to the autopilot",
                  "Phone web app: offline world map, tap start/destination, great-circle route upload"):
         canv.drawString(MARGIN, y, line); y -= 6.5 * mm
     meta = [("Project", "DroneMagNav (GNSS-denied drone navigation)"),
             ("Revision", "A - schematic + routed PCB + firmware release"),
             ("Date", date.today().strftime("%d %B %Y")),
-            ("Prepared by", "eng.ahmad@gmail.com Â· generated with KiCad 10"),
-            ("Design status", "ERC clean Â· netlist verified Â· PCB routed, 0 electrical DRC"),
+            ("Prepared by", "eng.ahmad@gmail.com · generated with KiCad 10"),
+            ("Design status", "ERC clean · netlist verified · PCB routed, 0 electrical DRC"),
             ("Classification", "Prototype / experimental - not certified")]
     y = PAGE_H - 145 * mm
     canv.setStrokeColor(LINE); canv.setLineWidth(.6)
@@ -361,7 +361,6 @@ def build_body():
         ["Netlist connectivity, 21 critical nets", "tools/check_netlist.py", "21 / 21 pass"],
         ["PCB connectivity", "kicad-cli pcb drc", "0 unconnected pads"],
         ["PCB electrical rules", "kicad-cli pcb drc", "0 violations (22 silkscreen notes)"],
-        ["WMM core-field evaluator vs NOAA WMM2025 test values", "tools/wmm_check.py", "100 / 100 points, worst error 0.001 nT"],
         ["Firmware", "-", "complete source; not yet compile-verified on hardware"]],
         [USABLE - 250, 110, 140]))
 
