@@ -22,7 +22,7 @@ phone-operated great-circle route planner.
 | BOM | `docs/BOM.csv` | 28 line items, 56 parts, MPNs |
 | Firmware (ESP32-S3, PlatformIO) | `firmware/` | complete source; WMM core-field model validated 100/100 against NOAA test vectors (0.001 nT) |
 | Phone UI | `firmware/sdcard/www/index.html` | offline map, tap-to-route, upload |
-| SD-card preparation | `tools/prepare_sd.py` | WDMAM → binary grid, WMM, coastline |
+| SD-card preparation | `tools/prepare_sd.py` | WDMAM v2 (1.5 GB text) → 51.9 MB binary grid, verified by `tools/wdmam_check.py`; WMM, coastline |
 | Design document | `DroneMagNav-Design-Document.pdf` | study, diagrams, PCB, BOM, verification |
 
 ## Hardware

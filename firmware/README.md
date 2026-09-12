@@ -52,7 +52,7 @@ then copy `firmware/sdcard/*` to the card root (FAT32, ≤ 32 GB recommended).
 
 | File | Source |
 |---|---|
-| `maps/wdmam.bin` | converted from the WDMAM grid you supplied |
+| `maps/wdmam.bin` | converted from the WDMAM v2 text grid you supplied (1.5 GB xyz, 26 M lines → 7200 × 3601 int16 cells, 51.9 MB; ~2 min) |
 | `maps/WMM.COF` | NOAA/NCEI World Magnetic Model coefficients (free) |
 | `maps/coast.json` | Natural Earth 1:110m coastline GeoJSON (public domain) |
 | `maps/local.bin` | optional: your own high-resolution aeromagnetic survey, same format |

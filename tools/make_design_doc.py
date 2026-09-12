@@ -363,6 +363,8 @@ def build_body():
         ["PCB electrical rules", "kicad-cli pcb drc", "0 violations (22 silkscreen notes)"],
         ["WMM core-field evaluator vs NOAA WMM2025 test values", "tools/wmm_check.py",
          "100 / 100 points, worst error 0.001 nT"],
+        ["WDMAM SD-card grid vs source file (7200 x 3601 cells, 51.9 MB)", "tools/wdmam_check.py",
+         "225 sample cells identical, 100 % coverage"],
         ["Firmware", "-", "complete source; not yet compile-verified on hardware"]],
         [USABLE - 250, 110, 140]))
 

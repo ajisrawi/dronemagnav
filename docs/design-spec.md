@@ -57,6 +57,14 @@ See `firmware/README.md` for the module map. Key algorithms:
 `/maps/wdmam.bin` (32-byte header + int16 nT, 3′ world grid ≈ 52 MB), and
 stages `WMM.COF`, `coast.json` (Natural Earth 1:110m) and the web page.
 
+The supplied WDMAM file is the v2 text distribution: 1.5 GB, 26 M lines of
+`lon lat anomaly_nT source ...`, columns −179.95…180.00° and rows
+90…−90° at 0.05°. The converter reads it in 2 M-line chunks, moves the
+180.00° column to the front so the grid starts at exactly −180° (the
+firmware wraps longitude modulo the grid width), and writes 7200 × 3601
+cells. `tools/wdmam_check.py` re-reads sample lines from the source and
+confirms the binary holds the same values at the cells the firmware addresses.
+
 ## 8. Verification
 | Check | Result |
 |---|---|
@@ -65,6 +73,7 @@ stages `WMM.COF`, `coast.json` (Natural Earth 1:110m) and the web page.
 | PCB connectivity | 0 unconnected |
 | PCB electrical DRC | 0 violations (22 silkscreen notes) |
 | WMM evaluator vs NOAA WMM2025 test values | 100/100 points, worst error 0.001 nT (tools/wmm_check.py) |
+| WDMAM SD grid vs source text file | 7200 × 3601 cells, 100 % valid, 225 sample cells identical (tools/wdmam_check.py) |
 
 ## 9. Known limitations
 - WDMAM resolution/altitude → km-class accuracy without a local survey.

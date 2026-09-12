@@ -66,20 +66,53 @@ def load_wdmam(path):
         else:
             lat0 = lat_top
         return g, lon0, lat0, dlon, dlat
-    # text xyz
-    data = np.loadtxt(path, comments=("#", "%", ">"), usecols=(0, 1, 2), dtype=np.float64)
-    lon, lat, val = data[:, 0], data[:, 1], data[:, 2]
+    # text xyz: "lon lat value [...]" per line (WDMAM v2 distribution is
+    # 26 M lines / 1.5 GB, so read it in chunks)
+    return load_xyz(path)
+
+
+def _xyz_chunks(path, chunk_rows=2_000_000):
+    try:
+        import pandas as pd
+        for chunk in pd.read_csv(path, sep=r"\s+", header=None, usecols=[0, 1, 2],
+                                 comment="#", dtype=np.float64, engine="c",
+                                 chunksize=chunk_rows, on_bad_lines="skip"):
+            yield chunk.values
+    except ImportError:
+        yield np.loadtxt(path, comments=("#", "%", ">"), usecols=(0, 1, 2), dtype=np.float64)
+
+
+def load_xyz(path):
+    # pass 1: grid geometry from the first chunk + file extent
+    first = next(_xyz_chunks(path))
+    lon, lat = first[:, 0], first[:, 1]
     lons = np.unique(np.round(lon, 6))
+    dlon = float(np.median(np.diff(lons))) if len(lons) > 1 else 0.05
     lats = np.unique(np.round(lat, 6))
-    dlon = float(np.median(np.diff(lons)))
-    dlat = float(np.median(np.diff(lats)))
-    lon0, lat0 = float(lons[0]), float(lats[0])
-    nlon = int(round((lons[-1] - lon0) / dlon)) + 1
-    nlat = int(round((lats[-1] - lat0) / dlat)) + 1
+    dlat = float(np.median(np.abs(np.diff(lats)))) if len(lats) > 1 else dlon
+    lon_min, lon_max, lat_min, lat_max = lons[0], lons[-1], 90.0, -90.0
+    nrows = 0
+    for c in _xyz_chunks(path):
+        lon_min = min(lon_min, c[:, 0].min()); lon_max = max(lon_max, c[:, 0].max())
+        lat_min = min(lat_min, c[:, 1].min()); lat_max = max(lat_max, c[:, 1].max())
+        nrows += len(c)
+    lon0, lat0 = float(lon_min), float(lat_min)
+    nlon = int(round((lon_max - lon0) / dlon)) + 1
+    nlat = int(round((lat_max - lat0) / dlat)) + 1
+    print(f"xyz: {nrows} points, lon {lon0}..{lon_max} step {dlon}, "
+          f"lat {lat0}..{lat_max} step {dlat} -> {nlon} x {nlat}")
     g = np.full((nlat, nlon), np.nan, dtype=np.float32)
-    ci = np.round((lon - lon0) / dlon).astype(int)
-    cj = np.round((lat - lat0) / dlat).astype(int)
-    g[cj, ci] = val
+    # pass 2: fill
+    for c in _xyz_chunks(path):
+        ci = np.round((c[:, 0] - lon0) / dlon).astype(np.int64)
+        cj = np.round((c[:, 1] - lat0) / dlat).astype(np.int64)
+        ok = (ci >= 0) & (ci < nlon) & (cj >= 0) & (cj < nlat) & np.isfinite(c[:, 2])
+        g[cj[ok], ci[ok]] = c[ok, 2]
+    # WDMAM lists columns -179.95 .. 180.00: the 180.00 column *is* -180.00,
+    # move it to the front so the grid starts exactly at -180.
+    if abs((lon0 + (nlon - 1) * dlon) - 180.0) < 1e-6 and lon0 > -180.0 + 1e-6:
+        g = np.roll(g, 1, axis=1)
+        lon0 -= dlon
     return g, lon0, lat0, dlon, dlat
 
 
