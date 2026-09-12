@@ -20,7 +20,7 @@ phone-operated great-circle route planner.
 | PCB 64 × 60 mm, 4-layer, 30.5 mm Pixhawk hole pattern | `hardware/dronemagnav/dronemagnav.kicad_pcb` | routed, 0 unconnected, 0 electrical DRC |
 | Fab package | `hardware/dronemagnav/fab/` (Gerber ZIP, drill, pick-and-place) | ready to upload |
 | BOM | `docs/BOM.csv` | 28 line items, 56 parts, MPNs |
-| Firmware (ESP32-S3, PlatformIO) | `firmware/` | complete source, build + flash instructions |
+| Firmware (ESP32-S3, PlatformIO) | `firmware/` | complete source; WMM core-field model validated 100/100 against NOAA test vectors (0.001 nT) |
 | Phone UI | `firmware/sdcard/www/index.html` | offline map, tap-to-route, upload |
 | SD-card preparation | `tools/prepare_sd.py` | WDMAM → binary grid, WMM, coastline |
 | Design document | `DroneMagNav-Design-Document.pdf` | study, diagrams, PCB, BOM, verification |

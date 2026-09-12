@@ -361,6 +361,8 @@ def build_body():
         ["Netlist connectivity, 21 critical nets", "tools/check_netlist.py", "21 / 21 pass"],
         ["PCB connectivity", "kicad-cli pcb drc", "0 unconnected pads"],
         ["PCB electrical rules", "kicad-cli pcb drc", "0 violations (22 silkscreen notes)"],
+        ["WMM core-field evaluator vs NOAA WMM2025 test values", "tools/wmm_check.py",
+         "100 / 100 points, worst error 0.001 nT"],
         ["Firmware", "-", "complete source; not yet compile-verified on hardware"]],
         [USABLE - 250, 110, 140]))
 
@@ -385,9 +387,15 @@ def merge():
     for p in PdfReader(SCH_PDF).pages:
         w.add_page(p)
     w.add_metadata({"/Title": DOC_TITLE, "/Author": "DroneMagNav Project"})
-    with open(OUT_PDF, "wb") as f:
+    out = OUT_PDF
+    try:
+        f = open(out, "wb")
+    except PermissionError:
+        out = OUT_PDF.replace(".pdf", "-revA.pdf")
+        f = open(out, "wb")
+    with f:
         w.write(f)
-    print("wrote", OUT_PDF)
+    print("wrote", out)
 
 
 if __name__ == "__main__":

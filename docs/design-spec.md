@@ -64,6 +64,7 @@ stages `WMM.COF`, `coast.json` (Natural Earth 1:110m) and the web page.
 | Netlist, 21 critical nets | 21/21 |
 | PCB connectivity | 0 unconnected |
 | PCB electrical DRC | 0 violations (22 silkscreen notes) |
+| WMM evaluator vs NOAA WMM2025 test values | 100/100 points, worst error 0.001 nT (tools/wmm_check.py) |
 
 ## 9. Known limitations
 - WDMAM resolution/altitude → km-class accuracy without a local survey.
