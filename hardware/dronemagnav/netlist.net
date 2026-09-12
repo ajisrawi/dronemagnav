@@ -1,7 +1,7 @@
 (export
 	(version "E")
 	(design
-		(source "C:\\Users\\ahmad\\Documents\\ATC ROIP\\DroneMagNav\\hardware\\dronemagnav\\dronemagnav.kicad_sch")
+		(source "hardware/dronemagnav/dronemagnav.kicad_sch")
 		(date "2026-09-12T15:14:26")
 		(tool "Eeschema 10.0.3")
 		(sheet
@@ -58,7 +58,7 @@
 			(tstamps "/5b1d71a7-b670-4236-966f-4c07a1230628/")
 			(title_block
 				(title "Power - USB/FC 5V in, 3V3 digital + 3V3A sensor rails")
-				(company "ATC RoIP Gateway Project")
+				(company "DroneMagNav Project")
 				(rev "A")
 				(date)
 				(source "power.kicad_sch")
@@ -106,7 +106,7 @@
 			(tstamps "/efbf69cc-5888-49f6-b538-7fcbaa23e03d/")
 			(title_block
 				(title "MCU - ESP32-S3-WROOM-1 (WiFi/BLE, USB, SDMMC, SPI)")
-				(company "ATC RoIP Gateway Project")
+				(company "DroneMagNav Project")
 				(rev "A")
 				(date)
 				(source "mcu.kicad_sch")
@@ -154,7 +154,7 @@
 			(tstamps "/29c1d1c5-25b3-4c5d-ae41-d8a3c8441249/")
 			(title_block
 				(title "Sensors - BMI088 IMU, LIS3MDL magnetometer, BMP280 baro")
-				(company "ATC RoIP Gateway Project")
+				(company "DroneMagNav Project")
 				(rev "A")
 				(date)
 				(source "sensors.kicad_sch")
@@ -202,7 +202,7 @@
 			(tstamps "/9f76a982-9e05-4438-b03d-2df8501f4bf9/")
 			(title_block
 				(title "GNSS (u-blox MAX-M10S) and microSD map storage")
-				(company "ATC RoIP Gateway Project")
+				(company "DroneMagNav Project")
 				(rev "A")
 				(date)
 				(source "gnss_storage.kicad_sch")
@@ -250,7 +250,7 @@
 			(tstamps "/9f9f9c8c-27af-4372-b47e-65787eed450b/")
 			(title_block
 				(title "Interfaces - USB-C, flight controller, sensor mast")
-				(company "ATC RoIP Gateway Project")
+				(company "DroneMagNav Project")
 				(rev "A")
 				(date)
 				(source "interfaces.kicad_sch")

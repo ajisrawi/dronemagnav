@@ -1,9 +1,9 @@
-(kicad_sch (version 20231120) (generator "atc_roip_gen")
+(kicad_sch (version 20231120) (generator "dronemagnav_gen")
   (uuid "7011e03d-4b27-4254-a113-f3f6695af835")
   (paper "A3")
   (title_block
     (title "Power - USB/FC 5V in, 3V3 digital + 3V3A sensor rails")
-    (company "ATC RoIP Gateway Project")
+    (company "DroneMagNav Project")
     (rev "A")
   )
   (lib_symbols

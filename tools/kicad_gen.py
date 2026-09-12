@@ -292,12 +292,12 @@ def render_sheet(sheet, libdb, root_uuid, sheet_inst_uuid, page):
         used[sym.lib_id] = sym
 
     out = []
-    out.append('(kicad_sch (version 20231120) (generator "atc_roip_gen")')
+    out.append('(kicad_sch (version 20231120) (generator "dronemagnav_gen")')
     out.append(f'  (uuid "{sheet.uuid}")')
     out.append('  (paper "A3")')
     out.append('  (title_block')
     out.append(f'    (title "{sheet.title}")')
-    out.append('    (company "ATC RoIP Gateway Project")')
+    out.append('    (company "DroneMagNav Project")')
     out.append('    (rev "A")')
     out.append('  )')
     out.append('  (lib_symbols')

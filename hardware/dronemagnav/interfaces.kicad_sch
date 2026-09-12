@@ -1,9 +1,9 @@
-(kicad_sch (version 20231120) (generator "atc_roip_gen")
+(kicad_sch (version 20231120) (generator "dronemagnav_gen")
   (uuid "2edb9d3f-91f2-48d1-95df-c65f927a4cf5")
   (paper "A3")
   (title_block
     (title "Interfaces - USB-C, flight controller, sensor mast")
-    (company "ATC RoIP Gateway Project")
+    (company "DroneMagNav Project")
     (rev "A")
   )
   (lib_symbols
