@@ -23,3 +23,6 @@ hardware/dronemagnav/*.ses
 hardware/dronemagnav/erc.rpt
 hardware/dronemagnav/drc.rpt
 hardware/dronemagnav/_design-doc-body.pdf
+
+# intermediate of tools/make_assembly_doc.py
+hardware/dronemagnav/fab/_assembly-instructions-body.pdf
