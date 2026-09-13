@@ -71,7 +71,10 @@ def main():
         comment = desc or r["Value"]
         if mpn and "series" not in mpn.lower():
             comment = f"{mpn} {desc}".strip() if desc and mpn not in desc else (mpn or desc)
-        bom.append([comment, ",".join(refs_on_board), r["Footprint"], lcsc.get(mpn, ""),
+        # map key "MPN|Value" wins over bare "MPN" (generic MPNs such as
+        # "CL10 series" cover several values)
+        part = lcsc.get(f"{mpn}|{r['Value']}", lcsc.get(mpn, ""))
+        bom.append([comment, ",".join(refs_on_board), r["Footprint"], part,
                     r.get("Manufacturer", ""), mpn])
     write_csv(a.out + "-bom-jlcpcb.csv",
               ["Comment", "Designator", "Footprint", "LCSC Part #", "Manufacturer", "MPN"], bom)

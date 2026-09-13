@@ -1,7 +1,7 @@
 MPN,LCSC,Status,Note
-CL21 series,C15850,jlc-matched,Samsung CL21A106KAYNNNE 10uF 25V X5R 0805 (Basic)
-CL10 series,C14663,jlc-matched,Yageo CC0603KRX7R9BB104 100nF 50V X7R 0603 (Basic)
-CL10A105KB8NNNC,C15849,jlc-matched,Samsung 1uF 50V X5R 0603 (Basic)
+CL21 series|10uF,C15850,jlc-matched,Samsung CL21A106KAYNNNE 10uF 25V X5R 0805 (Basic)
+CL10 series|100nF,C14663,jlc-matched,Yageo CC0603KRX7R9BB104 100nF 50V X7R 0603 (Basic)
+CL10 series|1uF,C15849,jlc-matched,Samsung CL10A105KB8NNNC 1uF 50V X5R 0603 (Basic)
 SS14,C2480,jlc-matched,MDD SS14 Schottky SMA (Basic)
 RC0603FR-071KL,C21190,jlc-proposed,UNI-ROYAL 0603WAF1001T5E 1k 1% (Basic)
 RC0603FR-0710KL,C25804,jlc-proposed,UNI-ROYAL 0603WAF1002T5E 10k 1% (Basic)
@@ -12,7 +12,7 @@ ESP32-S3-WROOM-1-N16R8,C2913202,jlc-matched,Espressif (Extended) - check stock a
 BMI088,C194919,jlc-matched,Bosch (Extended) - check stock at order time
 LIS3MDLTR,C478483,jlc-proposed,ST (Extended)
 BMP280,C83291,jlc-matched,Bosch (Extended)
-MAX-M10S,C5291404,jlc-matched,u-blox (Extended)
+MAX-M10S-00B,C5291404,jlc-matched,u-blox MAX-M10S (Extended)
 AMS1117-3.3,C6186,jlc-matched,AMS (Basic)
 AP2112K-3.3TRG1,C22365427,jlc-proposed-alternative,MSKSEMI AP2112K-3.3TRG1(MS) second-source; Diodes original is C51118 if in stock
 USBLC6-2SC6,C2687116,jlc-proposed-alternative,UMW USBLC6-2SC6 second-source; ST original is C7519 if in stock

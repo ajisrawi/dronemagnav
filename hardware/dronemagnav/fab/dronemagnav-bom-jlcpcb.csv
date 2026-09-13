@@ -1,7 +1,7 @@
 Comment,Designator,Footprint,LCSC Part #,Manufacturer,MPN
 Capacitor 10uF X5R 0805,"C1,C2,C5,C8,C15,C16,C18",C_0805_2012Metric,C15850,Samsung,CL21 series
 Capacitor 100nF X7R 0603,"C3,C6,C9,C10,C11,C12,C13,C14,C17",C_0603_1608Metric,C14663,Samsung,CL10 series
-Capacitor 1uF X7R 0603,"C4,C7",C_0603_1608Metric,C14663,Samsung,CL10 series
+Capacitor 1uF X7R 0603,"C4,C7",C_0603_1608Metric,C15849,Samsung,CL10 series
 "SS14 Schottky diode 40 V 1 A, SMA","D1,D2",D_SMA,C2480,Vishay / MDD,SS14
 19-217/GHC-YR1S2/3T LED green 0603,D3,LED_0603_1608Metric,,Everlight,19-217/GHC-YR1S2/3T
 19-217/GHC-YR1S2/3T LED green 0603,D4,LED_0603_1608Metric,,Everlight,19-217/GHC-YR1S2/3T
@@ -23,7 +23,7 @@ PTS645SM43SMTR92 Tactile switch 6x6 SMD,SW2,SW_SPST_PTS645Sx43SMTR92,,C&K,PTS645
 "BMI088 6-axis IMU (accel + gyro), drone grade, LGA-16",U2,Bosch_LGA-16_4.5x3mm_P0.5mm_LayoutBorder7x1y_ClockwisePinNumbering,C194919,Bosch,BMI088
 "LIS3MDLTR 3-axis magnetometer, 16-bit, LGA-12",U3,LGA-12_2x2mm_P0.5mm,C478483,STMicroelectronics,LIS3MDLTR
 "BMP280 Barometric pressure sensor, LGA-8",U4,Bosch_LGA-8_2x2.5mm_P0.65mm_ClockwisePinNumbering,C83291,Bosch,BMP280
-"MAX-M10S-00B GNSS receiver module, L1 multi-constellation",U5,ublox_MAX,,u-blox,MAX-M10S-00B
+"MAX-M10S-00B GNSS receiver module, L1 multi-constellation",U5,ublox_MAX,C5291404,u-blox,MAX-M10S-00B
 "AMS1117-3.3 LDO 3.3 V 1 A, SOT-223",U6,SOT-223-3_TabPin2,C6186,AMS / UMW,AMS1117-3.3
 "AP2112K-3.3TRG1 Low-noise LDO 3.3 V 600 mA, SOT-23-5",U7,SOT-23-5,C22365427,Diodes Inc.,AP2112K-3.3TRG1
 "USBLC6-2SC6 USB 2.0 ESD protection, SOT-23-6",U8,SOT-23-6,C2687116,STMicroelectronics,USBLC6-2SC6
