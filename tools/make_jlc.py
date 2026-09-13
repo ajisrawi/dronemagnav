@@ -68,16 +68,22 @@ def main():
         # like "PWR", and the MPN when it is a real part number
         mpn = r.get("MPN", "").strip()
         desc = r.get("Description", "").strip()
-        comment = desc or r["Value"]
-        if mpn and "series" not in mpn.lower():
-            comment = f"{mpn} {desc}".strip() if desc and mpn not in desc else (mpn or desc)
+        value = r["Value"].strip()
+        # Comment = the value (10uF, 10K, BMI088 ...) as JLCPCB expects; where
+        # the schematic value is only a net/function name (PWR, RESET, USB-C)
+        # use the description so the matcher has something to work with
+        comment = value if any(ch.isdigit() for ch in value) else (desc or value)
         # map key "MPN|Value" wins over bare "MPN" (generic MPNs such as
         # "CL10 series" cover several values)
-        part = lcsc.get(f"{mpn}|{r['Value']}", lcsc.get(mpn, ""))
-        bom.append([comment, ",".join(refs_on_board), r["Footprint"], part,
-                    r.get("Manufacturer", ""), mpn])
+        part = lcsc.get(f"{mpn}|{value}", lcsc.get(mpn, ""))
+        bom.append([comment, ",".join(refs_on_board), r["Footprint"], len(refs_on_board),
+                    part, r.get("Manufacturer", ""), mpn])
+    assert all(row[3] >= 1 for row in bom)
     write_csv(a.out + "-bom-jlcpcb.csv",
-              ["Comment", "Designator", "Footprint", "LCSC Part #", "Manufacturer", "MPN"], bom)
+              ["Comment", "Designator", "Footprint", "Quantity", "LCSC Part #",
+               "Manufacturer", "MPN"], bom)
+    print(f"  {sum(row[3] for row in bom)} parts in {len(bom)} lines, "
+          f"{sum(1 for row in bom if row[4])} lines with LCSC number")
     in_bom = {x for row in bom for x in row[1].split(",")}
     unlisted = sorted(placed - in_bom)
     if missing:
