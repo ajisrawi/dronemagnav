@@ -49,7 +49,8 @@ def main():
     run(sys.executable, os.path.join(ROOT, "tools", "make_jlc.py"),
         "--pos", os.path.join(FAB, "dronemagnav-pos.csv"),
         "--bom", os.path.join(ROOT, "docs", "BOM.csv"),
-        "--out", os.path.join(FAB, "dronemagnav"))
+        "--out", os.path.join(FAB, "dronemagnav"),
+        "--lcsc", os.path.join(ROOT, "docs", "lcsc-parts.csv"))
     for side in ("top", "bottom"):
         run(CLI, "pcb", "render", "-o", os.path.join(HW, f"board-{side}.png"),
             "--side", side, "--width", "1600", "--height", "1500", "--zoom", "0.92",

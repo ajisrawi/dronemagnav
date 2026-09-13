@@ -38,7 +38,12 @@ def main():
     ap.add_argument("--pos", required=True)
     ap.add_argument("--bom", required=True)
     ap.add_argument("--out", required=True, help="output path prefix")
+    ap.add_argument("--lcsc", help="optional CSV with columns MPN,LCSC[,Status,Note] to "
+                                   "fill the LCSC Part # column")
     a = ap.parse_args()
+    lcsc = {}
+    if a.lcsc and os.path.exists(a.lcsc):
+        lcsc = {r["MPN"].strip(): r["LCSC"].strip() for r in read_csv(a.lcsc) if r["LCSC"].strip()}
 
     # ---------------------------------------------------------------- CPL
     cpl = []
@@ -58,9 +63,16 @@ def main():
         missing += [x for x in refs if x not in placed]
         if not refs_on_board:
             continue          # mechanical / not-placed items (e.g. mounting hardware)
-        comment = r["Value"] if r["Value"] else r["Description"]
-        bom.append([comment, ",".join(refs_on_board), r["Footprint"], "",
-                    r.get("Manufacturer", ""), r.get("MPN", "")])
+        # JLCPCB matches on the Comment: give it the description (e.g. "LED
+        # green 0603", "Resistor 10K 1% 0603") rather than a net-name value
+        # like "PWR", and the MPN when it is a real part number
+        mpn = r.get("MPN", "").strip()
+        desc = r.get("Description", "").strip()
+        comment = desc or r["Value"]
+        if mpn and "series" not in mpn.lower():
+            comment = f"{mpn} {desc}".strip() if desc and mpn not in desc else (mpn or desc)
+        bom.append([comment, ",".join(refs_on_board), r["Footprint"], lcsc.get(mpn, ""),
+                    r.get("Manufacturer", ""), mpn])
     write_csv(a.out + "-bom-jlcpcb.csv",
               ["Comment", "Designator", "Footprint", "LCSC Part #", "Manufacturer", "MPN"], bom)
     in_bom = {x for row in bom for x in row[1].split(",")}
