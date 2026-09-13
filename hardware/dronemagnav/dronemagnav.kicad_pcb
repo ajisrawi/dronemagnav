@@ -7,6 +7,13 @@
 		(legacy_teardrops no)
 	)
 	(paper "A4")
+	(title_block
+		(title "DroneMagNav - magnetic anomaly navigation board")
+		(date "2026-09-13")
+		(rev "A")
+		(company "DroneMagNav Project")
+		(comment 1 "Top assembly drawing: F.Fab + F.Silkscreen + Edge.Cuts, all parts top side")
+	)
 	(layers
 		(0 "F.Cu" signal)
 		(4 "In1.Cu" signal)
@@ -6475,7 +6482,7 @@
 		(descr "2.4 GHz Wi-Fi and Bluetooth module  https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf")
 		(tags "2.4 GHz Wi-Fi and Bluetooth module")
 		(property "Reference" "U1"
-			(at 0 -28.575 0)
+			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "a2753584-04d1-478b-ad20-452b9efdbb6d")
@@ -6761,7 +6768,7 @@
 			)
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -0.6 0)
+			(at 0 11 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(uuid "ed19b162-fb50-4b48-a230-b7d3f28a5f2e")
